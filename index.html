@@ -3,65 +3,84 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Galleria Video 3×5</title>
+  <title>Galleria 3×5</title>
   <style>
     :root{
+      /* Fallback e unità “safe” per mobile */
       --vw: 100vw;
-      --vh: 100vh;
-      --svh: 100svh;
-      --dvh: 100dvh;
+      --vh: 100vh;   /* fallback */
+      --svh: 100svh; /* viewport height “safe” su mobile */
+      --dvh: 100dvh; /* dynamic viewport height moderno */
+
+      /* scegli l’altezza migliore disponibile */
       --vh-use: var(--dvh, var(--svh, var(--vh)));
+
+      /* lato di UNA cella quadrata: min( larghezza/3 , altezza/5 ) */
       --cell: min( calc(var(--vw) / 3), calc(var(--vh-use) / 5) );
+
+      /* dimensioni del contenitore 3×5 */
       --grid-w: calc(var(--cell) * 3);
       --grid-h: calc(var(--cell) * 5);
     }
+
+    * { box-sizing: border-box; }
+
     html, body {
       margin: 0;
       height: 100%;
       background: #000;
-      overflow: hidden;
+      overflow: hidden;          /* niente scroll */
     }
+
     body {
       display: grid;
-      place-items: center;
+      place-items: center;       /* centra la griglia */
     }
+
     .grid {
       width: var(--grid-w);
       height: var(--grid-h);
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       grid-template-rows: repeat(5, 1fr);
-      gap: 0;
+      gap: 0;                    /* nessuno spazio tra celle */
+      background: #000;
     }
+
     .grid a {
       display: block;
       width: 100%;
       height: 100%;
+      overflow: hidden;
+      background: #000;
     }
+
     .grid img {
       width: 100%;
       height: 100%;
-      object-fit: contain;
+      object-fit: contain;       /* immagini 512×512 restano quadrate */
       display: block;
-      background: #000;
+      background: #000;          /* se restano micro-bordi, sono neri */
     }
   </style>
 </head>
 <body>
   <div class="grid">
-    <a href="intent://drive.google.com/file/d/13QEys7E8Ta4XSJeNuNGJCG9sY2Eu3T_K/view#Intent;scheme=https;action=android.intent.action.VIEW;end">
-      <img src="img1.jpg" alt="1">
-    </a>
-    <a href="intent://drive.google.com/file/d/FILE_ID_2/view#Intent;scheme=https;action=android.intent.action.VIEW;end">
-      <img src="img2.jpg" alt="2">
-    </a>
-    <a href="intent://drive.google.com/file/d/FILE_ID_3/view#Intent;scheme=https;action=android.intent.action.VIEW;end">
-      <img src="img3.jpg" alt="3">
-    </a>
-    <!-- … ripeti fino a 15 -->
-    <a href="intent://drive.google.com/file/d/FILE_ID_15/view#Intent;scheme=https;action=android.intent.action.VIEW;end">
-      <img src="img15.jpg" alt="15">
-    </a>
+    <a href="https://drive.google.com/file/d/13QEys7E8Ta4XSJeNuNGJCG9sY2Eu3T_K/view?usp=drive_link" target="_blank"><img src="img1.jpg" alt="1"></a>
+    <a href="https://drive.google.com/file/d/FILE_ID_2/view?usp=sharing" target="_blank"><img src="img2.jpg" alt="2"></a>
+    <a href="https://drive.google.com/file/d/FILE_ID_3/view?usp=sharing" target="_blank"><img src="img3.jpg" alt="3"></a>
+    <a href="https://drive.google.com/file/d/FILE_ID_4/view?usp=sharing" target="_blank"><img src="img4.jpg" alt="4"></a>
+    <a href="https://drive.google.com/file/d/FILE_ID_5/view?usp=sharing" target="_blank"><img src="img5.jpg" alt="5"></a>
+    <a href="https://drive.google.com/file/d/FILE_ID_6/view?usp=sharing" target="_blank"><img src="img6.jpg" alt="6"></a>
+    <a href="https://drive.google.com/file/d/FILE_ID_7/view?usp=sharing" target="_blank"><img src="img7.jpg" alt="7"></a>
+    <a href="https://drive.google.com/file/d/FILE_ID_8/view?usp=sharing" target="_blank"><img src="img8.jpg" alt="8"></a>
+    <a href="https://drive.google.com/file/d/FILE_ID_9/view?usp=sharing" target="_blank"><img src="img9.jpg" alt="9"></a>
+    <a href="https://drive.google.com/file/d/FILE_ID_10/view?usp=sharing" target="_blank"><img src="img10.jpg" alt="10"></a>
+    <a href="https://drive.google.com/file/d/FILE_ID_11/view?usp=sharing" target="_blank"><img src="img11.jpg" alt="11"></a>
+    <a href="https://drive.google.com/file/d/FILE_ID_12/view?usp=sharing" target="_blank"><img src="img12.jpg" alt="12"></a>
+    <a href="https://drive.google.com/file/d/FILE_ID_13/view?usp=sharing" target="_blank"><img src="img13.jpg" alt="13"></a>
+    <a href="https://drive.google.com/file/d/FILE_ID_14/view?usp=sharing" target="_blank"><img src="img14.jpg" alt="14"></a>
+    <a href="https://drive.google.com/file/d/FILE_ID_15/view?usp=sharing" target="_blank"><img src="img15.jpg" alt="15"></a>
   </div>
 </body>
 </html>
