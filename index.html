@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Galleria Video 3×5</title>
+  <style>
+    :root{
+      --vw: 100vw;
+      --vh: 100vh;
+      --svh: 100svh;
+      --dvh: 100dvh;
+      --vh-use: var(--dvh, var(--svh, var(--vh)));
+      --cell: min( calc(var(--vw) / 3), calc(var(--vh-use) / 5) );
+      --grid-w: calc(var(--cell) * 3);
+      --grid-h: calc(var(--cell) * 5);
+    }
+    html, body {
+      margin: 0;
+      height: 100%;
+      background: #000;
+      overflow: hidden;
+    }
+    body {
+      display: grid;
+      place-items: center;
+    }
+    .grid {
+      width: var(--grid-w);
+      height: var(--grid-h);
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(5, 1fr);
+      gap: 0;
+    }
+    .grid a {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+    .grid img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+      background: #000;
+    }
+  </style>
+</head>
+<body>
+  <div class="grid">
+    <a href="intent://drive.google.com/file/d/13QEys7E8Ta4XSJeNuNGJCG9sY2Eu3T_K/view#Intent;scheme=https;action=android.intent.action.VIEW;end">
+      <img src="img1.jpg" alt="1">
+    </a>
+    <a href="intent://drive.google.com/file/d/FILE_ID_2/view#Intent;scheme=https;action=android.intent.action.VIEW;end">
+      <img src="img2.jpg" alt="2">
+    </a>
+    <a href="intent://drive.google.com/file/d/FILE_ID_3/view#Intent;scheme=https;action=android.intent.action.VIEW;end">
+      <img src="img3.jpg" alt="3">
+    </a>
+    <!-- … ripeti fino a 15 -->
+    <a href="intent://drive.google.com/file/d/FILE_ID_15/view#Intent;scheme=https;action=android.intent.action.VIEW;end">
+      <img src="img15.jpg" alt="15">
+    </a>
+  </div>
+</body>
+</html>
